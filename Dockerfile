@@ -3,12 +3,12 @@ FROM ubuntu
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 6.5.0
 
-# Replace shell with bash so we can source files
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 # make sure apt is up to date
 RUN apt-get update --fix-missing
-RUN apt-get install -y wget git
+RUN apt-get install -y bash wget git
+
+# Replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install nvm with node and npm
 RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash \
