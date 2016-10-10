@@ -6,7 +6,7 @@ ENV PATH $NVM_DIR/versions/node/v$NVM_NODE_VERSION/bin:$PATH
 
 # make sure apt is up to date
 RUN apt-get update --fix-missing
-RUN apt-get install -y bash wget git
+RUN apt-get install -y bash wget git libpng12-0
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
