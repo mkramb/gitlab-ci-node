@@ -1,7 +1,8 @@
 FROM ubuntu
 
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 6.5.0
+ENV NVM_NODE_VERSION 6.5.0
+ENV PATH $NVM_DIR/versions/node/v$NVM_NODE_VERSION/bin:$PATH
 
 # make sure apt is up to date
 RUN apt-get update --fix-missing
@@ -13,8 +14,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Install nvm with node and npm
 RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash \
     && source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
+    && nvm install $NVM_NODE_VERSION \
+    && nvm alias default $NVM_NODE_VERSION \
     && nvm use default
-
-CMD ["/bin/bash", "-l"]
