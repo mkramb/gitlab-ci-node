@@ -1,5 +1,6 @@
 FROM ubuntu
 
+ENV PROFILE ~/.bash_profile
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 6.5.0
 
