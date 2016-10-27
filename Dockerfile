@@ -6,7 +6,7 @@ ENV PATH $NVM_DIR/versions/node/v$NVM_NODE_VERSION/bin:$PATH
 
 # Make sure apt is up to date and install base packages.
 RUN apt-get update --fix-missing
-RUN apt-get install -y bash wget git libpng12-0 libelf1 default-jre
+RUN apt-get install -y bash wget git libpng12-0 libelf1 default-jre-headless
 
 # Install Chromium.
 RUN \
